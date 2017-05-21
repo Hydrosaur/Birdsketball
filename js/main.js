@@ -325,6 +325,11 @@ function loopone(){
 					players[0].powerbar.resize(players[0].power / 2, 5);
 				}
 				players[0].powerbar.show();
+				if(players[0].image === "leftbird"){
+					players[0].powerbar.goto(players[0].x - 20, players[0].y);
+				} else if(players[0].image === "rightbird"){
+					players[0].powerbar.goto(players[0].x + 20, players[0].y);
+				}
 			} else {
 				players[0].block = true;
 				setTimeout(function(){
@@ -415,6 +420,11 @@ function looptwo(){
 					players[1].powerbar.resize(players[1].power / 2, 5);
 				}
 				players[1].powerbar.show();
+				if(players[1].image === "leftbird"){
+					players[1].powerbar.goto(players[1].x - 20, players[1].y);
+				} else if(players[1].image === "rightbird"){
+					players[1].powerbar.goto(players[1].x + 20, players[1].y);
+				}
 			} else {
 				players[1].block = true;
 				setTimeout(function(){
