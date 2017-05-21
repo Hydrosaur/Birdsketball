@@ -32,9 +32,9 @@ var bluescore = 0;
 var pinkscore = 0;
 
 //sounds
-bounceplay = true;
-shootplay = true;
-scoreplay = true;
+var bounceplay = true;
+var shootplay = true;
+var scoreplay = true;
 
 var settings = {
 	birdgravity: 0.3, // Gravity of the bird. Higher to make the bird fall faster.
@@ -138,7 +138,7 @@ function basketLoop(){
 		Scratch.drawText("50px 'Nunito', sans-serif", "Pink Wins!", "#ff42fb", -60, 25);
 		setTimeout(function(){
 			$("#startmodal").empty();
-			$("#startmodal").append("<h2 class='text-center' id='header'>Play Again?</h2>");
+			$("#startmodal").append("<h2 class='text-center' id='header'>Pink Wins!</h2>");
 			$("#startmodal").append("<button onclick='window.reload()' class='btn btn-success' id='start'>Play Again!</button>");
 		}, 4000);
 		clearInterval(ballinter);
@@ -151,7 +151,7 @@ function basketLoop(){
 		Scratch.drawText("50px 'Nunito', sans-serif", "Blue Wins!", "#4177ff", -60, 25);
 		setTimeout(function(){
 			$("#startmodal").empty();
-			$("#startmodal").append("<h2 class='text-center' id='header'>Play Again?</h2>");
+			$("#startmodal").append("<h2 class='text-center' id='header'>Blue Wins!</h2>");
 			$("#startmodal").append("<button onclick='window.reload()' class='btn btn-success' id='start'>Play Again!</button>");
 			$("#startmodal").show();
 		}, 4000);
@@ -254,7 +254,7 @@ function ballLoop(){
 			}, 300)
 		}
 	}
-	if(ball.y < -Scratch.height){
+	if(ball.y < -(Scratch.height / 2)){
 		ballvelo = -ballvelo;
 		if(bounceplay){
 			var aud = new Audio("img/bounce.wav");
