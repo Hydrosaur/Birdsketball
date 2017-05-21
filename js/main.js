@@ -7,10 +7,15 @@ var ballhorz = 0;
 var ballvelo = 0;
 var ballbc = 0;
 var posession;
+// =====================================
+// Interval Tracking
+// =====================================
+
 var p1inter;
 var p2inter;
 var ballinter;
 var basketinter;
+
 // ======================================
 // Sprite Variables
 // ======================================
@@ -25,6 +30,11 @@ var pinkbasket;
 var bluescore = 0;
 
 var pinkscore = 0;
+
+//sounds
+bounceplay = true;
+shootplay = true;
+scoreplay = true;
 
 var settings = {
 	birdgravity: 0.3, // Gravity of the bird. Higher to make the bird fall faster.
@@ -101,8 +111,24 @@ function basketLoop(){
 	if(pinkbasket.touching(ball)){
 		posession = -1;
 		pinkscore++;
+		if(scoreplay){
+			var aud = new Audio("img/score.wav");
+			aud.play();
+			scoreplay = false;
+			setTimeout(function(){
+				scoreplay = true;
+			}, 1000)
+		}
 		resetBall("Pink");
 	} else if(bluebasket.touching(ball)){
+		if(scoreplay){
+			var aud = new Audio("img/score.wav");
+			aud.play();
+			scoreplay = false;
+			setTimeout(function(){
+				scoreplay = true;
+			}, 1000)
+		}
 		posession = -1;
 		bluescore++;
 		resetBall("Blue");
@@ -171,6 +197,13 @@ function ballLoop(){
 			ball.changeYBy(ballvelo);
 			ballvelo = ballvelo / 5;
 			ballbc++;
+			if(bounceplay){
+				new Audio("img/bounce.wav");
+				bounceplay = false;
+				setTimeout(function(){
+					bounceplay = true;
+				}, 500)
+			}
 		} else {
 			ballvelo = 0;
 			ball.y = Scratch.height / 2 - ball.height;
@@ -204,9 +237,25 @@ function ballLoop(){
 			ball.goto(Scratch.width - ball.width);
 		}
 		ballhorz = -ballhorz;
+		if(bounceplay){
+			var aud = new Audio("img/bounce.wav");
+			aud.play();
+			bounceplay = false;
+			setTimeout(function(){
+				bounceplay = true;
+			}, 300)
+		}
 	}
 	if(ball.y < -Scratch.height){
 		ballvelo = -ballvelo;
+		if(bounceplay){
+			var aud = new Audio("img/bounce.wav");
+			aud.play();
+			bounceplay = false;
+			setTimeout(function(){
+				bounceplay = true;
+			}, 300)
+		}
 	}
 }
 
@@ -284,6 +333,14 @@ function loopone(){
 						ballvelo = -(players[0].power / 4);
 						ballhorz = (players[0].power / 2);
 					}
+				}
+				if(shootplay){
+					var aud = new Audio("img/shoot.wav");
+					aud.play();
+					shootplay = false;
+					setTimeout(function(){
+						shootplay = true;
+					}, 500)
 				}
 				setTimeout(function(){
 					players[0].power = 0;
@@ -364,6 +421,14 @@ function looptwo(){
 						ballvelo = -(players[1].power / 4);
 						ballhorz = (players[1].power / 2);
 					}
+				}
+				if(shootplay){
+					var aud = new Audio("img/shoot.wav");
+					aud.play();
+					shootplay = false;
+					setTimeout(function(){
+						shootplay = true;
+					}, 500)
 				}
 				setTimeout(function(){
 					players[1].power = 0;
