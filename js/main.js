@@ -205,6 +205,13 @@ function ballLoop(){
 				}, 500)
 			}
 		} else {
+			if(bounceplay){
+				new Audio("img/bounce.wav");
+				bounceplay = false;
+				setTimeout(function(){
+					bounceplay = true;
+				}, 500)
+			}
 			ballvelo = 0;
 			ball.y = Scratch.height / 2 - ball.height;
 		}
