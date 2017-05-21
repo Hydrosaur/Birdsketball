@@ -369,5 +369,5 @@ function looptwo(){
 			}
 		}, 100);
 	}
-	Scratch.drawText("15px 'Nunito', sans-serif", players[0].username, "white", players.x - 25, players[0].y - (players[0].width + 8));
+	Scratch.drawText("15px 'Nunito', sans-serif", players[1].username, "white", players.x - 25, players[1].y - (players[1].width + 8));
 }
