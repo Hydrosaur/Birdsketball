@@ -140,7 +140,7 @@ function basketLoop(){
 		players[0].powerbar.goto(players[0].x + (players[0].width), players[0].y);
 	}
 	if(players[1].image === "leftbird"){
-		players[1].powerbar.goto(players[1].x - (players[1].powerbar.width - players[1].width), players[1].y);
+		players[1].powerbar.goto(players[1].x - (players[1].powerbar.width + players[1].width), players[1].y);
 	} else if(players[1].image === "rightbird"){
 		players[1].powerbar.goto(players[1].x + (players[1].powerbar.width + players[1].width), players[1].y);
 	}
@@ -289,6 +289,7 @@ function loopone(){
 			}
 		}, 100);
 	}
+	Scratch.drawText("15px 'Nunito', sans-serif", players[0].username, "white", players.x - 25, players[0].y - (players[0].width + 8));
 }
 
 function looptwo(){
@@ -368,4 +369,5 @@ function looptwo(){
 			}
 		}, 100);
 	}
+	Scratch.drawText("15px 'Nunito', sans-serif", players[0].username, "white", players.x - 25, players[0].y - (players[0].width + 8));
 }
