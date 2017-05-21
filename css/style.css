@@ -1,0 +1,47 @@
+#game {
+	border: 1px solid black;
+}
+
+#header {
+	color: white;
+	border-bottom: 3px solid #a0a0a0;
+	padding-bottom: 3%;
+}
+
+#startmodal {
+	font-family: 'Nunito', sans-serif;
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	border: 3px solid #a0a0a0;
+	width: 30%;
+	background-color: #353535;
+}
+
+#users {
+	color: white;
+	margin: 10px;
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#users li {
+	color: white;
+	font-size: 30px;
+	padding-left: 7%;
+}
+
+#userinput {
+	margin: 10px;
+	width: 83%;
+	display: inline;
+}
+
+#add {
+	color: black;
+	display: inline;
+}
+
+#start {
+	width: 100%;
+}
