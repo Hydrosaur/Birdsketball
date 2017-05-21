@@ -182,6 +182,7 @@ function resetBall(color){
 	});
 	Scratch.drawText("50px 'Nunito', sans-serif", color + " Scores!", "white", -80, 25);
 	setTimeout(function(){
+		ballhorz = 0;
 		p1inter = setInterval(loopone, settings.ticks);
 		p2inter = setInterval(looptwo, settings.ticks);
 		ballinter = setInterval(ballLoop, settings.ticks);
@@ -287,6 +288,8 @@ function loopone(){
 	}
 	if(Scratch.iskeydown[38]){
 		if(players[0].flapable){
+			var aud = new Audio("img/flap.wav");
+			aud.play();
 			players[0].flapable = false;
 			players[0].velocity = -settings.jumpheight;
 			players[0].bouncecount = 0;
@@ -375,6 +378,8 @@ function looptwo(){
 	}
 	if(Scratch.iskeydown[87]){
 		if(players[1].flapable){
+			var aud = new Audio("img/flap.wav");
+			aud.play();
 			players[1].flapable = false;
 			players[1].velocity = -settings.jumpheight;
 			players[1].bouncecount = 0;
