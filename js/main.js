@@ -205,6 +205,9 @@ function ballLoop(){
 		}
 		ballhorz = -ballhorz;
 	}
+	if(ball.y < -Scratch.height){
+		ballvelo = -ballvelo;
+	}
 }
 
 $("#userform").on("submit", function(e){
