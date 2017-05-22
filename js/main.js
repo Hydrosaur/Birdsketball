@@ -318,51 +318,54 @@ function loopone(){
 		players[0].horizontalvelo = players[0].horizontalvelo * settings.birdfriction;
 	}
 	if(Scratch.iskeydown[190] && posession === 0){
-		var keywait = setInterval(function(){
-			if(Scratch.iskeydown[190] && posession === 0){
-				if (players[0].power < settings.maxpower){
-					players[0].power += settings.powerspeed;
-					players[0].powerbar.resize(players[0].power / 2, 5);
-				}
-				players[0].powerbar.show();
-				if(players[0].image === "leftbird"){
-					players[0].powerbar.goto(players[0].x - 20, players[0].y);
-				} else if(players[0].image === "rightbird"){
-					players[0].powerbar.goto(players[0].x + 20, players[0].y);
-				}
-			} else {
-				players[0].block = true;
-				setTimeout(function(){
-					players[0].block = false;
-				}, 1500);
-				posession = -1;
-				players[0].powerbar.hide();
-				
-				if(players[0].image === "leftbird"){
-					for (var i = 0; i < 3; i++) {
-						ballvelo = -(players[0].power / 4);
-						ballhorz = -(players[0].power / 2);
+		if(keywait === undefined){
+			var keywait = setInterval(function(){
+				if(Scratch.iskeydown[190] && posession === 0){
+					if (players[0].power < settings.maxpower){
+						players[0].power += settings.powerspeed;
+						players[0].powerbar.resize(players[0].power / 2, 5);
 					}
-				} else if(players[0].image === "rightbird"){
-					for (var i = 0; i < 3; i++) {
-						ballvelo = -(players[0].power / 4);
-						ballhorz = (players[0].power / 2);
+					players[0].powerbar.show();
+					if(players[0].image === "leftbird"){
+						players[0].powerbar.goto(players[0].x - 20, players[0].y);
+					} else if(players[0].image === "rightbird"){
+						players[0].powerbar.goto(players[0].x + 20, players[0].y);
 					}
-				}
-				if(shootplay){
-					var aud = new Audio("img/shoot.wav");
-					aud.play();
-					shootplay = false;
+				} else {
+					players[0].block = true;
 					setTimeout(function(){
-						shootplay = true;
-					}, 500)
+						players[0].block = false;
+					}, 1500);
+					posession = -1;
+					players[0].powerbar.hide();
+
+					if(players[0].image === "leftbird"){
+						for (var i = 0; i < 3; i++) {
+							ballvelo = -(players[0].power / 4);
+							ballhorz = -(players[0].power / 2);
+						}
+					} else if(players[0].image === "rightbird"){
+						for (var i = 0; i < 3; i++) {
+							ballvelo = -(players[0].power / 4);
+							ballhorz = (players[0].power / 2);
+						}
+					}
+					if(shootplay){
+						var aud = new Audio("img/shoot.wav");
+						aud.play();
+						shootplay = false;
+						setTimeout(function(){
+							shootplay = true;
+						}, 500)
+					}
+					setTimeout(function(){
+						players[0].power = 0;
+					}, 1000);
+					keywait = undefined;
+					clearInterval(keywait);
 				}
-				setTimeout(function(){
-					players[0].power = 0;
-				}, 1000);
-				clearInterval(keywait);
-			}
-		}, 100);
+			}, 100);
+		}
 	}
 	Scratch.drawText("15px 'Nunito', sans-serif", players[0].username, "white", players.x - 25, players[0].y - (players[0].width + 8));
 }
