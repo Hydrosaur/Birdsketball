@@ -363,7 +363,6 @@ function loopone(){
 					clearInterval(keywait);
 				}
 			}, 100);
-		}
 	}
 	Scratch.drawText("15px 'Nunito', sans-serif", players[0].username, "white", players.x - 25, players[0].y - (players[0].width + 8));
 }
