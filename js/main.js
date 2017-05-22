@@ -152,7 +152,7 @@ function basketLoop(){
 		setTimeout(function(){
 			$("#startmodal").empty();
 			$("#startmodal").append("<h2 class='text-center' id='header'>Blue Wins!</h2>");
-			$("#startmodal").append("<button onclick='window.reload()' class='btn btn-success' id='start'>Play Again!</button>");
+			$("#startmodal").append("<button onclick='location.reload()' class='btn btn-success' id='start'>Play Again!</button>");
 			$("#startmodal").show();
 		}, 4000);
 		clearInterval(ballinter);
