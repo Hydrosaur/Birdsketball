@@ -318,7 +318,6 @@ function loopone(){
 		players[0].horizontalvelo = players[0].horizontalvelo * settings.birdfriction;
 	}
 	if(Scratch.iskeydown[190] && posession === 0){
-		if(keywait === undefined){
 			var keywait = setInterval(function(){
 				if(Scratch.iskeydown[190] && posession === 0){
 					if (players[0].power < settings.maxpower){
@@ -361,7 +360,6 @@ function loopone(){
 					setTimeout(function(){
 						players[0].power = 0;
 					}, 1000);
-					keywait = undefined;
 					clearInterval(keywait);
 				}
 			}, 100);
